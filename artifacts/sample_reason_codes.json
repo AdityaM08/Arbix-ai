@@ -1,0 +1,23 @@
+[
+  {
+    "rank": 1,
+    "feature": "historical_repayment_score",
+    "contribution": -110.14,
+    "direction": "negative",
+    "reason": "Historical Repayment Score of 36.130 reduced the score."
+  },
+  {
+    "rank": 2,
+    "feature": "crop_type",
+    "contribution": -51.804,
+    "direction": "negative",
+    "reason": "Crop Type = Sugarcane reduced the score."
+  },
+  {
+    "rank": 3,
+    "feature": "pm_kisan_status",
+    "contribution": -46.1644,
+    "direction": "negative",
+    "reason": "Pm-Kisan Status = No reduced the score."
+  }
+]

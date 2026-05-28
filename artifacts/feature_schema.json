@@ -1,0 +1,53 @@
+{
+  "required_columns": [
+    "land_area_acres",
+    "historical_repayment_score",
+    "annual_income_inr",
+    "liability_ratio_pct",
+    "rainfall_deviation_pct",
+    "ndvi_score",
+    "district",
+    "crop_type",
+    "pm_kisan_status",
+    "irrigation_type",
+    "land_ownership",
+    "soil_type",
+    "sales_channel",
+    "target_entitlement_score",
+    "application_year"
+  ],
+  "feature_columns": [
+    "land_area_acres",
+    "historical_repayment_score",
+    "annual_income_inr",
+    "liability_ratio_pct",
+    "rainfall_deviation_pct",
+    "ndvi_score",
+    "district",
+    "crop_type",
+    "pm_kisan_status",
+    "irrigation_type",
+    "land_ownership",
+    "soil_type",
+    "sales_channel"
+  ],
+  "target_column": "target_entitlement_score",
+  "time_column": "application_year",
+  "input_dtypes": {
+    "land_area_acres": "float64",
+    "historical_repayment_score": "float64",
+    "annual_income_inr": "float64",
+    "liability_ratio_pct": "float64",
+    "rainfall_deviation_pct": "float64",
+    "ndvi_score": "float64",
+    "district": "str",
+    "crop_type": "str",
+    "pm_kisan_status": "str",
+    "irrigation_type": "str",
+    "land_ownership": "str",
+    "soil_type": "str",
+    "sales_channel": "str",
+    "target_entitlement_score": "float64",
+    "application_year": "int64"
+  }
+}
