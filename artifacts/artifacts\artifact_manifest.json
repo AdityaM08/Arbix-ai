@@ -1,7 +1,0 @@
-{
-  "bundle": "yogyank_pipeline_bundle.joblib",
-  "metadata": "model_metadata.json",
-  "schema": "feature_schema.json",
-  "reason_code_examples": "holdout_reason_code_examples.csv",
-  "slice_metrics": "holdout_slice_metrics.csv"
-}
