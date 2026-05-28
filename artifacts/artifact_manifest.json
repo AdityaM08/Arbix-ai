@@ -1,0 +1,10 @@
+{
+  "artifacts": [
+    "artifacts/yogyank_pipeline.joblib",
+    "artifacts/feature_schema.json",
+    "artifacts/model_metadata.json",
+    "artifacts/training_metrics.json",
+    "artifacts/sample_reason_codes.json",
+    "artifacts/artifact_manifest.json"
+  ]
+}
