@@ -1,0 +1,13 @@
+# Audit Memo
+
+The original script was dangerous because it mixed business policy into the training target, used a future outcome field (`defaulted_in_next_12_months`) as an input, used arbitrary label encoding for nominal categories, relied on a random shuffled split instead of a future-facing validation design, and only saved a bare model file without the preprocessing context needed for reproducible scoring. That combination makes the reported high validation `R2` untrustworthy. In particular, the future default flag is unavailable at scoring time and is strongly tied to the target, so it creates direct leakage and artificially inflated performance.
+
+I rewrote the baseline to keep the model focused on information that is available at application time, exclude policy logic from training, and evaluate on a temporal holdout (`train: 2022-2023`, `validate: 2024`) that better simulates future scoring. The new script freezes preprocessing with median imputation, standardization for numeric fields, and one-hot encoding with unknown-category handling for categorical fields. It saves the model pipeline, feature schema, metrics, metadata, and sample reason codes so the run can be audited and reproduced. It also produces simple top-3 reason codes for a farmer score using feature-level linear contributions, which is more reviewable than a black-box baseline.
+
+## Limitations
+
+One thing I would not trust yet is fairness across protected or business-sensitive slices, because I did not add threshold-based governance or formal bias tests in this round. With more time, I would add richer monitoring, backtesting across more time windows, and a separate scored inference entrypoint with stricter schema contracts and regression tests.
+
+## Monitoring
+
+I would monitor error rates and score distributions by `crop_type`, `pm_kisan_status`, `irrigation_type`, and landholding bands derived from `land_area_acres`. I would also track stability by `district` and application year to catch drift or silent distribution shifts.
